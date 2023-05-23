@@ -15,21 +15,21 @@ const nextConfig = {
 
     return config;
   },
-  compress: true,
-  generateEtags: true,
-  pageExtensions: ['tsx', 'mdx', 'ts'],
-  poweredByHeader: false,
-  productionBrowserSourceMaps: false,
-  svgo: {
-    multipass: true,
-    plugins: ['removeDimensions'],
-  },
-  strictMode: true,
-  swcMinify: true,
-  trailingSlash: false,
-  images: {
-    domains: ['images.unsplash.com', 'source.unsplash.com'],
-  },
+  // compress: true,
+  // generateEtags: true,
+  // pageExtensions: ['tsx', 'mdx', 'ts'],
+  // poweredByHeader: false,
+  // productionBrowserSourceMaps: false,
+  // svgo: {
+  //   multipass: true,
+  //   plugins: ['removeDimensions'],
+  // },
+  // strictMode: true,
+  // swcMinify: true,
+  // trailingSlash: false,
+  // images: {
+  //   domains: ['images.unsplash.com', 'source.unsplash.com'],
+  // },
 };
 
 module.exports = nextConfig;
