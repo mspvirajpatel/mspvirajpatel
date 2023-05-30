@@ -69,19 +69,19 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Viraj Patel.`,
+  name: `I'm Virajkumar Patel.`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Mobile Application Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
+        Motivated <strong className="text-stone-100">Mobile Application Engineer</strong> with 6.5+ years of experience
+        delivering secure, reliable and high-performance applications. Specializes in front-end user interface design
+        and development. Skilled in full-stack development, databases, and software design.
       </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+      {/* <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
         plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
         <strong className="text-stone-100">Vancouver Island</strong>.
-      </p>
+      </p> */}
     </>
   ),
   actions: [
@@ -104,16 +104,24 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `Proficient in architecture designing, development in React ecosystem and the libraries available for common tasks and troubleshooting of React
+  Excellent knowledge of Restful Api, InApp Purchase, Push Notifications, FaceID.
+  \nExcellent logical skills as well as in-depth knowledge of SDLC and Agile methodologies
+  \nPossess excellent communication skills and an avid problem solver
+  \nTeam player, flexible, and able to work in a fast-paced environment
+  \nHands-on Social login integration, Media Layer, Core Service Layer. 
+  \nGood motivator, enthusiastic, and open to learning new ideas 
+  \nAbility to handle multiple tasks 
+  \nImplementation of complex & performance-oriented application query.
+  \nKnowledge of creating CI/CD pipelines with version control tools & technologies
+  `,
   aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
+    {label: 'Location', text: 'Ahmadabad, Gujarat, India', Icon: MapIcon},
     {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    {label: 'Nationality', text: 'Indian', Icon: FlagIcon},
+    {label: 'Interests', text: 'Cricket, Explore new technology', Icon: SparklesIcon},
+    {label: 'Study', text: 'Ganpat University', Icon: AcademicCapIcon},
+    {label: 'Employment', text: 'Simform Solutions', Icon: BuildingOffice2Icon},
   ],
 };
 
@@ -313,12 +321,12 @@ export const testimonial: TestimonialSection = {
   imageSrc: testimonialImage,
   testimonials: [
     {
-      name: 'John Doe',
+      name: 'Jignesh',
       text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
     },
     {
-      name: 'Jane Doe',
+      name: 'Pankaj Kotvani',
       text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
     },
@@ -340,23 +348,23 @@ export const contact: ContactSection = {
   items: [
     {
       type: ContactType.Email,
-      text: 'reachout@timbaker.me',
-      href: 'mailto:reachout@timbaker.me',
+      text: 'patelvirajd78@gmail.com',
+      href: 'mailto:patelvirajd78@gmail.com',
     },
     {
       type: ContactType.Location,
-      text: 'Victoria BC, Canada',
+      text: 'Ahmadabad, Gujarat',
       href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
     },
     {
       type: ContactType.Instagram,
-      text: '@tbakerx',
-      href: 'https://www.instagram.com/tbakerx/',
+      text: '@mspviraj',
+      href: 'https://www.instagram.com/mspviraj/',
     },
     {
       type: ContactType.Github,
-      text: 'tbakerx',
-      href: 'https://github.com/tbakerx',
+      text: 'mspviraj',
+      href: 'https://github.com/mspvirajpatel',
     },
   ],
 };
