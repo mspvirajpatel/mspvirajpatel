@@ -86,7 +86,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/assets/resume.pdf',
+      href: '../assets/resume.pdf',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -134,15 +134,15 @@ export const skills: SkillGroup[] = [
     skills: [
       {
         name: 'English',
+        level: 8,
+      },
+      {
+        name: 'Hindi',
+        level: 9,
+      },
+      {
+        name: 'Gujarati',
         level: 10,
-      },
-      {
-        name: 'French',
-        level: 4,
-      },
-      {
-        name: 'Spanish',
-        level: 3,
       },
     ],
   },
@@ -164,23 +164,6 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    name: 'Backend development',
-    skills: [
-      {
-        name: 'Node.js',
-        level: 8,
-      },
-      {
-        name: 'Rust',
-        level: 5,
-      },
-      {
-        name: 'Golang',
-        level: 4,
-      },
-    ],
-  },
-  {
     name: 'Mobile development',
     skills: [
       {
@@ -189,11 +172,15 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Flutter',
-        level: 4,
+        level: 1,
       },
       {
         name: 'Swift',
-        level: 3,
+        level: 7,
+      },
+      {
+        name: 'Objective-C',
+        level: 6,
       },
     ],
   },
@@ -204,25 +191,25 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Project title 1',
+    title: 'Gavel',
     description: 'Give a short description of your project here.',
     url: 'https://timbaker.me',
     image: porfolioImage1,
   },
   {
-    title: 'Project title 2',
+    title: 'Switchit',
     description: 'Give a short description of your project here.',
     url: 'https://timbaker.me',
     image: porfolioImage2,
   },
   {
-    title: 'Project title 3',
+    title: 'QuickCam',
     description: 'Give a short description of your project here.',
     url: 'https://timbaker.me',
     image: porfolioImage3,
   },
   {
-    title: 'Project title 4',
+    title: 'ViralCam',
     description: 'Give a short description of your project here.',
     url: 'https://timbaker.me',
     image: porfolioImage4,
@@ -251,24 +238,6 @@ export const portfolioItems: PortfolioItem[] = [
     url: 'https://timbaker.me',
     image: porfolioImage8,
   },
-  {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
-    image: porfolioImage9,
-  },
-  {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
-    image: porfolioImage10,
-  },
-  {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://timbaker.me',
-    image: porfolioImage11,
-  },
 ];
 
 /**
@@ -276,39 +245,44 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'April 2011',
+    location: 'Ganpat University',
+    title: 'Masters of computer science in Information Technology',
+    content: <p></p>,
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'March 2010',
+    location: 'Jay Somnath High secondary school',
+    title: '12th Commerce',
+    content: <p></p>,
   },
 ];
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: 'Oct 2017 - Present',
+    location: 'Simform Solutions',
+    title: 'Lead Engineer (React Native)',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Developed and implemented a groundbreaking new design process for improving the accuracy and efficiency of
+        product development. Managed a team of 10 engineers to ensure successful completion of project milestones.
+        Created and maintained detailed engineering documentation to ensure project success. Successfully designed and
+        implemented innovative solutions for complex engineering problems. Conducted regular research and development to
+        identify and develop new technologies.
       </p>
     ),
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
+    date: 'March 2016 - Sep 2017',
+    location: 'Webmob Technologies',
+    title: 'iOS Developer',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Designed and implemented multiple iOS applications using Swift and Objective-C. Successfully deployed multiple
+        apps to the Apple App Store. Utilized Xcode and the Interface Builder to create user interfaces. Leveraged
+        external libraries and frameworks, including CocoaPods, to extend application functionality. Applied modern
+        design patterns to ensure high performance and scalability.
       </p>
     ),
   },
