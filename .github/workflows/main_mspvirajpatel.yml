@@ -24,13 +24,32 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
+      - name: Show workspace & build output
+        run: |
+          echo "Working directory: $(pwd)"
+          ls -la
+          echo "Check common build folders:"
+          ls -la build || true
+          ls -la dist || true
+          ls -la .next || true
+
+      - name: Verify build output exists
+        run: |
+          if [ ! -d build ] && [ ! -d dist ] && [ ! -d .next ]; then
+            echo "No build output found (build, dist, or .next). Please confirm your build step and output folder."
+            exit 1
+          fi
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
           # Prefer uploading only the build output instead of the whole repo.
           # Change './build' to your project's output folder (dist, build, .next, etc.)
-          path: ./build
+          path: |
+            build
+            dist
+            .next
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,4 +71,4 @@ jobs:
           app-name: 'mspvirajpatel'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0A69BA930A374742B193CC33249CFF08 }}
-          package: .
+          package: ./node-app
