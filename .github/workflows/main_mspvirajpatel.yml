@@ -24,19 +24,19 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
-      - name: Show workspace & build output
+      - name: Debug build outputs before upload
         run: |
           echo "Working directory: $(pwd)"
           ls -la
-          echo "Check common build folders:"
-          ls -la build || true
-          ls -la dist || true
-          ls -la .next || true
+          for d in build dist .next out public; do
+            echo "=== $d ==="
+            if [ -d "$d" ]; then ls -la "$d"; else echo "NO $d directory"; fi
+          done
 
       - name: Verify build output exists
         run: |
-          if [ ! -d build ] && [ ! -d dist ] && [ ! -d .next ]; then
-            echo "No build output found (build, dist, or .next). Please confirm your build step and output folder."
+          if [ ! -d build ] && [ ! -d dist ] && [ ! -d .next ] && [ ! -d out ] && [ ! -d public ]; then
+            echo "No build output found (build, dist, .next, out, or public). Please confirm your build step and output folder."
             exit 1
           fi
 
@@ -45,11 +45,15 @@ jobs:
         with:
           name: node-app
           # Prefer uploading only the build output instead of the whole repo.
-          # Change './build' to your project's output folder (dist, build, .next, etc.)
+          # Change the paths below to your project's output folder if different.
           path: |
-            build
-            dist
-            .next
+            build/**
+            dist/**
+            .next/**
+            out/**
+            public/**
+          # Fail the job early if no files are found to upload so the error is visible in the build job
+          if-no-files-found: error
 
   deploy:
     runs-on: ubuntu-latest
