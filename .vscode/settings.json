@@ -5,6 +5,11 @@
       "approve": true,
       "matchCommandLine": true
     },
-    "yarn next": true
+    "yarn next": true,
+    "/^node -v && npm -v && ls -1 \\| grep -E 'package-lock\\.json\\|npm-shrinkwrap\\.json' \\|\\| true$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "npm install": true
   }
 }

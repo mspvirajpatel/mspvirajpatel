@@ -41,7 +41,7 @@ This is a React based personal resume website template. Built with typescript on
 
 ### 1. Make sure you have what you need
 
-To build this website, you will need to have the latest stable versions of Node and Yarn downloaded and installed on your machine. If you don't already have them, you can get Node [here,](https://nodejs.org/en/download/) and Yarn [here.](https://yarnpkg.com/getting-started/install)
+To build this website, you will need to have the latest stable versions of Node and npm downloaded and installed on your machine. If you don't already have them, you can get Node [here](https://nodejs.org/en/download/) and npm is bundled with Node.
 
 ### 2. Fork and download this repo (and star if you like!)
 
@@ -49,7 +49,7 @@ Next, find the `Fork` button in the top right of this page. This will allow you 
 
 ### 3. Install dependencies and run
 
-Once you have your own copy of this repo forked and downloaded, open the folder in your favorite terminal and run `yarn install` to install dependencies. Following this, run `yarn dev` to run the project. In your terminal you should be given the url of the running instance (usually http://localhost:3000 unless you have something else running).
+Once you have your own copy of this repo forked and downloaded, open the folder in your favorite terminal and run `npm install` to install dependencies. Following this, run `npm run dev` to run the project. In your terminal you should be given the url of the running instance (usually http://localhost:3000 unless you have something else running).
 
 ### 4. Customize the data to make it your own
 

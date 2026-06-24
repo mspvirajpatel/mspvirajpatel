@@ -18,17 +18,14 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: Install Yarn
-        run: npm install -g yarn
-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Lint code
-        run: yarn run -T prettier --write './src/**/*.{js,jsx,json,ts,tsx}' && eslint './src/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0 || true
+        run: npm run lint || true
 
       - name: Build project
-        run: yarn build
+        run: npm run build
 
       - name: Debug build outputs before upload
         run: |
@@ -74,7 +71,7 @@ jobs:
             public/**
             server.js
             package.json
-            yarn.lock
+            package-lock.json
             node_modules/**
           # Fail the job early if no files are found
           if-no-files-found: error
