@@ -18,25 +18,49 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint code
+        run: yarn run -T prettier --write './src/**/*.{js,jsx,json,ts,tsx}' && eslint './src/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0 || true
+
+      - name: Build project
+        run: yarn build
 
       - name: Debug build outputs before upload
         run: |
           echo "Working directory: $(pwd)"
+          echo "=== Root directory ==="
           ls -la
-          for d in build dist .next out public; do
-            echo "=== $d ==="
-            if [ -d "$d" ]; then ls -la "$d"; else echo "NO $d directory"; fi
-          done
+          echo ""
+          echo "=== Checking for build artifacts ==="
+          if [ -d ".next" ]; then
+            echo "✓ .next directory found"
+            du -sh .next
+          else
+            echo "✗ .next directory NOT found"
+          fi
+          if [ -d "public" ]; then
+            echo "✓ public directory found"
+            du -sh public
+            ls -la public | head -20
+          else
+            echo "✗ public directory NOT found"
+          fi
+          if [ -f "server.js" ]; then
+            echo "✓ server.js found"
+          fi
+          if [ -f "package.json" ]; then
+            echo "✓ package.json found"
+          fi
 
       - name: Verify build output exists
         run: |
-          if [ ! -d build ] && [ ! -d dist ] && [ ! -d .next ] && [ ! -d out ] && [ ! -d public ]; then
-            echo "No build output found (build, dist, .next, out, or public). Please confirm your build step and output folder."
+          if [ ! -d ".next" ]; then
+            echo "ERROR: .next directory not found after build. This is required for Next.js apps."
             exit 1
           fi
 
@@ -44,15 +68,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          # Prefer uploading only the build output instead of the whole repo.
-          # Change the paths below to your project's output folder if different.
+          # For Next.js apps, we need to upload the build output and runtime files
           path: |
-            build/**
-            dist/**
             .next/**
-            out/**
             public/**
-          # Fail the job early if no files are found to upload so the error is visible in the build job
+            server.js
+            package.json
+            yarn.lock
+            node_modules/**
+          # Fail the job early if no files are found
           if-no-files-found: error
 
   deploy:
@@ -68,6 +92,17 @@ jobs:
         with:
           name: node-app
 
+      - name: Debug downloaded files
+        run: |
+          echo "=== Contents of workspace after artifact download ==="
+          ls -la
+          echo ""
+          if [ -d ".next" ]; then
+            echo "✓ .next directory present"
+          else
+            echo "✗ .next directory missing - deployment will fail"
+          fi
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -75,4 +110,4 @@ jobs:
           app-name: 'mspvirajpatel'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0A69BA930A374742B193CC33249CFF08 }}
-          package: ./node-app
+          package: .
